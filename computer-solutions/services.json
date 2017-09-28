@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Hardware Repair",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus porttitor lobortis. Maecenas maximus arcu bibendum magna tempus, sed gravida nisl commodo. Curabitur convallis enim nec dapibus varius. Phasellus at pellentesque justo. Nulla quis aliquam neque, sit amet commodo justo. Fusce ornare dolor ac finibus congue. Fusce id rhoncus risus. Vivamus nec ligula vel velit tempus hendrerit. Nulla finibus vulputate libero. Donec vitae ex sit amet risus cursus viverra eu et augue. Phasellus est erat, laoreet vel mattis in, ornare bibendum dolor. Nullam gravida eget risus id dignissim. Donec sit amet ultrices turpis. Sed ac vestibulum dolor. Sed condimentum mauris enim, sed pharetra lectus dictum non.",
+    "image": "tv-2223047_960_720.png"
+  },
+  {
+    "id": 2,
+    "name": "Virus Removal",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus porttitor lobortis. Maecenas maximus arcu bibendum magna tempus, sed gravida nisl commodo. Curabitur convallis enim nec dapibus varius. Phasellus at pellentesque justo. Nulla quis aliquam neque, sit amet commodo justo. Fusce ornare dolor ac finibus congue. Fusce id rhoncus risus. Vivamus nec ligula vel velit tempus hendrerit. Nulla finibus vulputate libero. Donec vitae ex sit amet risus cursus viverra eu et augue. Phasellus est erat, laoreet vel mattis in, ornare bibendum dolor. Nullam gravida eget risus id dignissim. Donec sit amet ultrices turpis. Sed ac vestibulum dolor. Sed condimentum mauris enim, sed pharetra lectus dictum non.",
+    "image": "tv-2223047_960_720.png"
+  },
+  {
+    "id": 3,
+    "name": "System Tuneup",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus porttitor lobortis. Maecenas maximus arcu bibendum magna tempus, sed gravida nisl commodo. Curabitur convallis enim nec dapibus varius. Phasellus at pellentesque justo. Nulla quis aliquam neque, sit amet commodo justo. Fusce ornare dolor ac finibus congue. Fusce id rhoncus risus. Vivamus nec ligula vel velit tempus hendrerit. Nulla finibus vulputate libero. Donec vitae ex sit amet risus cursus viverra eu et augue. Phasellus est erat, laoreet vel mattis in, ornare bibendum dolor. Nullam gravida eget risus id dignissim. Donec sit amet ultrices turpis. Sed ac vestibulum dolor. Sed condimentum mauris enim, sed pharetra lectus dictum non.",
+    "image": "tv-2223047_960_720.png"
+  }
+]
