@@ -44,7 +44,12 @@
 	<div class="container">
 
 		<div ng-controller="mainController">
-			<h1>Hello {{ name + '. How are you'}}!</h1>
+			<div>
+				<label>What is your twitter handle?</label>
+				<input type="text" ng-model="handle">
+				<hr>
+				<h1>twittle.com/{{lowercasehandle()}}</h1>
+			</div>
 		</div>
 
 	</div>
