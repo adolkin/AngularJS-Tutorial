@@ -1,17 +1,13 @@
 // MODULE
-var angularApp = angular.module('angularApp', ['ngMessages']);
+var angularApp = angular.module('angularApp', []);
 
 // CONTROLLERS
-angularApp.controller('mainController', ['$scope','$log','$filter', function ($scope, $log, $filter) {
-    // $log.log("Hello Log");
-    // $log.info("info");
-    // $log.warn("warn");
-    // $log.debug("debug");
-    // $log.error("error");
+angularApp.controller('mainController', ['$scope','$timeout', function ($scope, $timeout) {
 
-    $scope.name = 'Jonh';
-    $scope.formattedname = $filter('uppercase')($scope.name);
+  $scope.name = 'Tony';
 
-    $log.info($scope.name);
-    $log.info($scope.formattedname);
+  $timeout(function() {
+    $scope.name = 'Everybody'
+  }, 3000);
+  
 }]);
