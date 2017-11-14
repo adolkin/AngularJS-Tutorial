@@ -60,7 +60,7 @@ myNinjaApp.controller('NinjaController', ['$scope', '$http', function($scope, $h
       rate: parseInt($scope.newninja.rate),
       available: true
     });
-f
+
     $scope.newninja = " "
   };
 
