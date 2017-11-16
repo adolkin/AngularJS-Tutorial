@@ -1,19 +1,22 @@
-// MODULE
-var angularApp = angular.module('angularApp', []);
+var myApp = angular.module("angularApp", ["ngRoute"]);
+myApp.config(function($routeProvider){
+    $routeProvider
+       .when("/", {
+        templateUrl: "pages/main.html",
+        controller: "mainController"
+    })
+    .when("/first", {
+        templateUrl:"pages/first.html",
+        controller: "firstController"
+    });
+});
 
-// CONTROLLERS
-angularApp.controller('mainController', ['$scope', '$filter', '$timeout', function ($scope, $filter, $timeout) {
-
-  $scope.handle = '';
-
-  $scope.characters = 5;
-  $scope.lowercasehandle = function () {
-    return $filter('lowercase')($scope.handle);
-  }
-
-  $scope.rules = [
-    { rulename: "Must be 5 characters" },
-    { rulename: "Must not be used elsewhere" },
-    { rulename: "Must be cool" }
-  ]
+myApp.controller("mainController", ["$scope","$log", function($scope, $log){
+  $scope.name = 'Main';
 }]);
+
+myApp.controller("firstController", ["$scope","$log", function($scope, $log){
+    $scope.name = 'First';
+}]);
+
+
