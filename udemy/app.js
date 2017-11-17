@@ -36,12 +36,7 @@ myApp.controller("firstController", ["$scope", "$log", "$routeParams","nameServi
 myApp.directive("searchResult", function() {
   return {
     restrict: 'AECM',
-    template: `
-      <a href="#" class="list-group-item">
-        <h4 class="list-group-item-heading">Doe, John</h4>
-        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
-      </a>
-      `,
+    templateUrl: 'directives/searchresult.html',
     replace: true
   }
 })
