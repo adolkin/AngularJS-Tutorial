@@ -28,7 +28,14 @@ myApp.service("nameService", function() {
 myApp.controller("mainController", ["$scope", "$log", "nameService", function ($scope, $log, nameService) {
   $scope.person = {
     name: 'John Doe',
-    address: '555 Main St., NY, 1111'
+    address: '555 Main St.', 
+    city: 'New York',
+    state: 'NY',
+    zip: '1111'
+  }
+
+  $scope.formattedAddress = function(person) {
+    return person.address + ', ' + person.city + ', ' + person.state + ', ' + person.zip;
   }
 }]);
 
@@ -42,7 +49,8 @@ myApp.directive("searchResult", function() {
     templateUrl: 'directives/searchresult.html',
     replace: true,
     scope: {
-      personObject: "=" // 2way binding pass object
+      personObject: "=", // 2way binding pass object
+      formattedAddressFunction: "&"
     }
   }
 })
