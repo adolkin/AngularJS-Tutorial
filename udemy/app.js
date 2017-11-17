@@ -27,26 +27,21 @@ myApp.service("nameService", function() {
 
 myApp.controller("mainController", ["$scope", "$log", "nameService", function ($scope, $log, nameService) {
 
-  $scope.name = nameService.name;
-  // $log.main = 'Property from main';
-  // $log.log($log);
-
-  $scope.$watch('name', function() {
-    nameService.name = $scope.name;
-  })
-
-  $log.log(nameService.name);
-  $log.log(nameService.namelength());
-
 }]);
 
 myApp.controller("firstController", ["$scope", "$log", "$routeParams","nameService", function ($scope, $log, $routeParams, nameService) {
-  $scope.num = $routeParams.num;
 
-  $scope.name = nameService.name;
-  $scope.$watch('name', function() {
-    nameService.name = $scope.name;
-  })
 }]);
 
-
+myApp.directive("searchResult", function() {
+  return {
+    restrict: 'AECM',
+    template: `
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">Doe, John</h4>
+        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
+      </a>
+      `,
+    replace: true
+  }
+})
