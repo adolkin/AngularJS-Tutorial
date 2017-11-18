@@ -11,4 +11,4 @@
 
     vm.message = 'Hello';
   }
- })()
+ })();
