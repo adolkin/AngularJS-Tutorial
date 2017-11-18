@@ -67,28 +67,13 @@ myApp.directive("searchResult", function () {
       personObject: "=", // 2way binding pass object
       formattedAddressFunction: "&"
     },
-    compile: function(elem, attrs) {
-
-      console.log('Compiling...');
-      // elem.removeAttr('class');
-      console.log(elem);
-      // console.log(elem.html());
-
-      return {
-        // pre: function(scope, element, attrs) {
-        //   console.log('Pre-linking...');
-        //   console.log(element);
-        // },
-
-        post: function(scope, element, attrs) {
-          console.log('Post-linking...');
-          console.log(scope);
-          if (scope.personObject.name == 'Jane Doe') {
-            element.removeAttr('class');
-          }
-          console.log(element);
-        },
+    link: function (scope, element, attrs) {
+      console.log('Linking...');
+      console.log(scope);
+      if (scope.personObject.name == 'Jane Doe') {
+        element.removeAttr('class');
       }
-    }
+      console.log(element);
+    },
   }
 })
