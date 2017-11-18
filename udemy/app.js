@@ -67,13 +67,6 @@ myApp.directive("searchResult", function () {
       personObject: "=", // 2way binding pass object
       formattedAddressFunction: "&"
     },
-    link: function (scope, element, attrs) {
-      console.log('Linking...');
-      console.log(scope);
-      if (scope.personObject.name == 'Jane Doe') {
-        element.removeAttr('class');
-      }
-      console.log(element);
-    },
+    transclude: true
   }
 })
