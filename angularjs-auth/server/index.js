@@ -12,7 +12,7 @@ app.use(cors()); // tell app to use cors
 // authCheck: name of Middleware
 // jwt: Middleware package
 var authCheck = jwt({
-  secret: new Buffer('SBpfOveHW_QRLYkV-OGdsbs6urazOy1u-Vi7IT-AR4vISDK5YQZ8RjLeyDbh86du', 'base64'),
+  secret: new Buffer('5uRjGiycLHpUd5vikL7TA8Lt3m1DuuUBgh2rmsRnmAic0phPQ2JT50GdfSIslHd3', 'base64'),
   audience: 'Pp92iXYQvyu22x_3h30simBZZVKhmivx'
 });
 

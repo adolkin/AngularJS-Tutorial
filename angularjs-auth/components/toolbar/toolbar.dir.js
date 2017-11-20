@@ -16,10 +16,10 @@
 
   function toolbarController(auth, store, $location) {
 
-    var vm = this;
-    vm.login = login;
-    vm.logout = logout;
-    vm.auth = auth;
+    var vm = this;      // capture variable
+    vm.login = login;   // login function
+    vm.logout = logout; // logout function
+    vm.auth = auth;     // auth Service
     
     function login() {
       auth.signin({}, function(profile, token) {
