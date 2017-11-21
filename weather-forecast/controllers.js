@@ -10,15 +10,13 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
   }
 }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function ($scope, $resource, $routeParams, cityService, ) {
+weatherApp.controller('forecastController', ['$scope', '$routeParams', 'cityService', 'weatherService', 
+  function ($scope, $routeParams, cityService, weatherService) {
   $scope.city = cityService.city;
   
   $scope.days = $routeParams.days || '2';
 
-  $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast?APPID=22a06018ceec012c7883c1cad81833b0",
-    { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" } });
-
-  $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days });
+  $scope.weatherResult = weatherService.GetWeather($scope.city, $scope.days);
 
   $scope.converToFahrenheit = function (degK) {
     return Math.round((1.8 * (degK - 273)) + 32);
