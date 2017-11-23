@@ -2,12 +2,18 @@
 
 angular
   .module('authApp', ['auth0', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ui.router'])
-  .config(function($provide, authProvider, $urlRouterProvider, $stateProvider, $httpProvider, jwtInterceptorProvider) {
+  .config(function($provide, authProvider, $urlRouterProvider, $stateProvider, $httpProvider, jwtInterceptorProvider, jwtOptionsProvider) {
 
     authProvider.init({
       domain: 'adolkin.au.auth0.com',
-      clientId: 'Pp92iXYQvyu22x_3h30simBZZVKhmivx'
+      clientID: 'Pp92iXYQvyu22x_3h30simBZZVKhmivx'
     });
+
+    jwtInterceptorProvider.tokenGetter = function(store) {
+      return store.get('id_token');
+    }
+
+    jwtOptionsProvider.config({ whiteListedDomains: ['localhost'] });
 
     $urlRouterProvider.otherwise('/home');
 
@@ -21,4 +27,6 @@ angular
         templateUrl: 'components/profile/profile.tpl.html',
         controller: 'profileController as user'
       });
+
+      $httpProvider.interceptors.push('jwtInterceptor');
   })
