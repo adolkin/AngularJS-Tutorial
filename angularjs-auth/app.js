@@ -2,14 +2,14 @@
 
 angular
   .module('authApp', ['auth0', 'angular-storage', 'angular-jwt', 'ngMaterial', 'ui.router'])
-  .config(function($provide, authProvider, $urlRouterProvider, $stateProvider, $httpProvider, jwtInterceptorProvider, jwtOptionsProvider) {
+  .config(function ($provide, authProvider, $urlRouterProvider, $stateProvider, $httpProvider, jwtInterceptorProvider, jwtOptionsProvider) {
 
     authProvider.init({
       domain: 'adolkin.au.auth0.com',
       clientID: 'Pp92iXYQvyu22x_3h30simBZZVKhmivx'
     });
 
-    jwtInterceptorProvider.tokenGetter = function(store) {
+    jwtInterceptorProvider.tokenGetter = function (store) {
       return store.get('id_token');
     }
 
@@ -28,16 +28,38 @@ angular
         controller: 'profileController as user'
       });
 
-      $httpProvider.interceptors.push('jwtInterceptor');
-  })
-  .run(function($rootScope, auth, store, jwtHelper, $location) {
+    function redirect($q, $injector, $timeout, store, $location) {
+      var auth;
+      $timeout(function () {
+        auth = $injector.get('auth');
+      });
+      return {
+        responseError: function (rejection) {
 
-    $rootScope.$on('$locationChangeStart', function() {
+          if (rejection.status === 401) {
+            auth.signout();
+            store.remore('profile');
+            store.remore('id_token');
+            $location.path('/home');
+          }
+
+          return $q.reject(rejection);
+        }
+      }
+    }
+
+    $provide.factory('redirect', redirect);
+    $httpProvider.interceptors.push('redirect');
+    $httpProvider.interceptors.push('jwtInterceptor');
+  })
+  .run(function ($rootScope, auth, store, jwtHelper, $location) {
+
+    $rootScope.$on('$locationChangeStart', function () {
 
       var token = store.get('id_token');
-      if(token) {
+      if (token) {
         if (!jwtHelper.isTokenExpired(token)) {
-          if(!auth.isAuthenticated) {
+          if (!auth.isAuthenticated) {
             auth.authenticate(store.get('profile'), token);
           }
         }
