@@ -89,7 +89,7 @@ var module = angular.module("myModule", []);
 //   console.log("myProvider: " + myProvider);
 // });
 
-//CONSTANT
+//CONSTANT ASSIGN 1, CAN ACCESS DURING THE CONFIGURATION
 module.constant("myProvider", "myValue");
 
 module.controller("myController", function (myProvider) {
