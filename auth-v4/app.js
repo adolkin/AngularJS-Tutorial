@@ -87,6 +87,7 @@
     var self = this;
 
     function handleRequest(res) {
+      console.log(res);
       var token = res.data ? res.data.token : null;
       if (token) { console.log('JWT:', token); }
       self.message = res.data.message;
