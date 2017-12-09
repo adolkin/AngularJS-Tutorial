@@ -1,15 +1,15 @@
-(function(){
+(function () {
   'use strict';
 
-  angular
-    .module('FoursquareApp', ['ngRoute', 'ngResource', 'ui.bootstrap'])
-    .config(function ($routePRovider) {
+  var app = angular.module('FoursquareApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
-      $routeProvider.when("/explore", {
-        controller: "placesExplorerController",
-        templateUrl: "app/views/placeresults.html"
-      });
+  app.config(["$routeProvider", function($routeProvider)  {
 
-      $routeProvider.otherwise({ redirectTo: "/explore"});
-    })
+    $routeProvider.when("/explore", {
+      controller: "placesExplorerController",
+      templateUrl: "app/views/placesresults.html"
+    });
+
+    $routeProvider.otherwise({ redirectTo: "/explore" });
+  }]);
 })()
